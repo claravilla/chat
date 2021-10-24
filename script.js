@@ -1,16 +1,41 @@
+/*add event listener to send button*/
+
+$(".btn").click(chatInput);
+
+//add event listener for "enter"
+
+$("body").keydown(function(event){
+     if(event.keyCode===13) {
+       chatInput();
+     }
+});
+
+
 /* create function that
   read the user input
-  create a new user chat div (prod a all new row)
+  create a new user chat div (prob a all new row)
   add the text in the div
   add the new div above the input div
   */
 
 function chatInput() {
     let input= $("#userInput").val(); 
-    let newChat = $("p");
-    newChat.text(input);
-    newChat.addClass("chat userChat");
-    $("#chatInput").prepend(newChat);
+    if (input==="") {
+       alert("Please type a message");
+    } else {
+
+      let newRow = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"chat userChat\"><p id=\"input\"></p></div></div>";
+
+      $("#chatInput").before(newRow);
+      $("#input").text(input);
+      $("#input").removeAttr("id");
+
+
+      $("#userInput").val("");
+
+
+    } //end of else block;
+   
 }
 
   /* create a function that
