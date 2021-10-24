@@ -1,0 +1,55 @@
+body {
+  background-color: rgb(139, 236, 236);
+  font-family: "Architects Daughter", cursive; /* Google Font */
+}
+
+.row {
+  display: flex;
+}
+
+.placeholder {
+  width: 50%;
+  background-color: green;
+}
+
+.chat {
+  width: 50%;
+  overflow-wrap: break-word;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin:20px;
+  padding:5px;
+}
+
+.noBorder {
+  border: none;
+}
+
+.botChat {
+    background-color:rgb(120, 202, 202);;
+}
+
+.userChat {
+  background-color: rgb(114, 204, 204);
+
+}
+
+
+.form {
+  display:flex;
+}
+
+.formElement{
+  border-radius: 10px;
+  padding: 5px;
+  font-family: "Architects Daughter", cursive;
+}
+
+.input {
+  width:85%;
+}
+
+.btn {
+  background-color: rgb(223, 217, 217);
+}
+
