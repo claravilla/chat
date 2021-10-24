@@ -2,7 +2,7 @@
 
 $(".btn").click(chatInput);
 
-//add event listener for "enter"
+//add event listener for "enter" - tutorial https://api.jquery.com/keydown/
 
 $("body").keydown(function(event){
      if(event.keyCode===13) {
@@ -20,6 +20,8 @@ const reply = [
   "With a spoonful of sugar the pill goes down"
 ];
 
+
+
 /* create function that
    - read the user input
    - create a new user chat div (with the full new row)
@@ -31,14 +33,20 @@ function chatInput() {
     let input= $("#userInput").val(); 
     if (input==="") {
        alert("Please type a message");
-    } else {          //add the user message to the chat
+    } else {          //add the user message to the chat - tutorial https://www.tutorialrepublic.com/jquery-tutorial/jquery-insert-content.php
 
       let newRow = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"chat userChat\"><p id=\"input\"></p></div></div>";
 
       $("#chatInput").before(newRow);
       $("#input").text(input);
-      $("#input").removeAttr("id");
+      
 
+      let newTime = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"timestamp\"><p id=\"time\"></p></div></div>";
+      $("#chatInput").before(newTime);
+      $("#time").text("Sent on "+timestamp);
+      
+      $("#input").removeAttr("id");
+      $("#time").removeAttr("id");
 
       $("#userInput").val("");  //clearing the input field
       chatReply();  //call a function to get a reply
@@ -67,14 +75,25 @@ function chatReply() {
     let newRow = "<div class=\"row\"><div class=\"chat botChat\"><p id=\"input\"></p></div><div class=\"placeholder\"></div></div>"
     $("#chatInput").before(newRow);
     $("#input").text(reply[randomNumber(reply.length)]);
+
+    let newTime = "<div class=\"row\"><div class=\"timestamp\"><p id=\"time\"></p></div><div class=\"placeholder\"></div></div>"
+    $("#chatInput").before(newTime);
+    $("#time").text("Sent on "+timestamp);
+
     $("#input").removeAttr("id");
+    $("#time").removeAttr("id");
 }
 
 
 /*create a function that generate the date and time stamp 
-(see if we can use the Date object
+(see if we can use the Date object)
 call this function in the paragraph creation
 (see if need to add a new div to populate that)
 */
+
+
+let timestamp = new Date; 
+
+
 
 
