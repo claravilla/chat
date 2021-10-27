@@ -93,6 +93,7 @@ call this function in the paragraph creation
 
 
 let timestamp = new Date; 
+timestamp = timestamp.toLocaleString("en-GB");
 
 
 
