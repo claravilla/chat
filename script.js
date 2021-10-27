@@ -12,12 +12,47 @@ $("body").keydown(function(event){
 
 //create an array with possible responses
 
-const reply = [
-  "Computer says no",
+const genericReply = [
+  
   "The circumference of a circle is r*r*3.14",
   "The eye of the Enemy is moving",
   "I have a bad feeling about this",
-  "With a spoonful of sugar the pill goes down"
+  "With a spoonful of sugar the pill goes down",
+  "There's a snake in my boot"
+];
+
+const who = [
+  "The Doctor",
+  "Sauron",
+  "The Weasley Twins",
+  "Mickey Mouse",
+  "Uncle Scrooge",
+  "Darth Vader",
+  "Mary Poppins"
+];
+
+
+const where = [
+  "Highway to Hell",
+  "Neverland",
+  "Across the Universe",
+  "In a black hole",
+  "Narnia",
+  "In your dreams"
+]
+
+const why = [
+  "Because I say so",
+  "This is the way",
+  "Computer says no",
+  "It's better this way"
+]
+
+
+const when = [
+  "Never",
+  "The Ides of March",
+  "On your birthday",
 ];
 
 
@@ -43,16 +78,31 @@ function chatInput() {
 
       let newTime = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"timestamp\"><p id=\"time\"></p></div></div>";
       $("#chatInput").before(newTime);
-      $("#time").text("Sent on "+timestamp);
+      $("#time").text("Sent on "+timestamp());
       
       $("#input").removeAttr("id");
       $("#time").removeAttr("id");
-
       $("#userInput").val("");  //clearing the input field
-      chatReply();  //call a function to get a reply
 
 
-    } //end of else block;
+      //call a function to get a reply with 
+      //add if statement to pass the correct constant in the call for the function
+
+      if ((/why/i).test(input)) {
+        chatReply(why);
+      } else if ((/where/i).test(input)) {
+        chatReply(where);
+      } else if ((/when/i).test(input)) {
+        chatReply(when);
+      } else if ((/who/i).test(input))  {
+        chatReply(who);
+      } else {
+        chatReply(genericReply);  
+      };
+   
+
+     
+    }; //end of else block;
    
 };
 
@@ -71,14 +121,15 @@ function chatInput() {
 
 
 
-function chatReply() {
+function chatReply(reply) {
     let newRow = "<div class=\"row\"><div class=\"chat botChat\"><p id=\"input\"></p></div><div class=\"placeholder\"></div></div>"
     $("#chatInput").before(newRow);
+
     $("#input").text(reply[randomNumber(reply.length)]);
 
     let newTime = "<div class=\"row\"><div class=\"timestamp\"><p id=\"time\"></p></div><div class=\"placeholder\"></div></div>"
     $("#chatInput").before(newTime);
-    $("#time").text("Sent on "+timestamp);
+    $("#time").text("Sent on "+timestamp());
 
     $("#input").removeAttr("id");
     $("#time").removeAttr("id");
@@ -92,9 +143,10 @@ call this function in the paragraph creation
 */
 
 
+function timestamp() {
 let timestamp = new Date; 
-timestamp = timestamp.toLocaleString("en-GB");
+return timestamp.toLocaleString("en-GB");
 
-
+};
 
 
