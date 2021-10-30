@@ -10,6 +10,9 @@ $("body").keydown(function(event){
      }
 });
 
+
+
+
 //Arrays with possible replies
 
 const genericReply = [
@@ -77,13 +80,15 @@ function timestamp() {
   };
   
 
-/* Function that
+/* Function to be used when the user submit their message:
    - read the user input
    - create a new user chat div (with the full new row)
-   - add the text in the div
+   - add the user text in the div
    - add the new div above the input div
    - add the timestamp
-   to be used when the user submit their message
+   - call the function to generate a reply (based on the keyword in input)
+   - call the function that scroll to the bottom of the page
+   
   */
 
 function chatInput() {
@@ -95,12 +100,12 @@ function chatInput() {
       let newRow = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"chat userChat\"><p id=\"input\"></p></div></div>";
 
       $("#chatInput").before(newRow);
-      $("#input").text(input);
+      $("#input").text(input);        //create the user chat bubble
       
 
       let newTime = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"timestamp\"><p id=\"time\"></p></div></div>";
       $("#chatInput").before(newTime);
-      $("#time").text("Sent on "+timestamp());
+      $("#time").text("Sent on "+timestamp());   //create timestamp
       
       $("#input").removeAttr("id");
       $("#time").removeAttr("id");
@@ -119,20 +124,23 @@ function chatInput() {
       } else {
         chatReply(genericReply);  
       };
-   
+
+      $(document).scrollTop($(document).height()); 
+      
     }; 
    
 };
 
 
 
-/* Function that
-   - calls random number
+/* Function to be called at the end of chatInput function
+  
    - create a new chat div (with the full new row)
+   - calls random number generator
    - add the text to the div based on an array of possible answer
    - add the div above the input chat 
    - add the timestamp
-   to be called at the end of chatInput function */ 
+ */ 
 
 
 
@@ -148,10 +156,19 @@ function chatReply(reply) {
 
     $("#input").removeAttr("id");
     $("#time").removeAttr("id");
-}
+
+
+};
+
+
+function scrollDown() {
+  console.log("this works");
+  
+};
 
 /* Notes
 - Add the user message to the chat --> tutorial https://www.tutorialrepublic.com/jquery-tutorial/jquery-insert-content.php
-- Help on event listerner with Enter key - tutorial https://api.jquery.com/keydown/
+- Help on event listerner with Enter key ---> tutorial https://api.jquery.com/keydown/
+- How to scroll to the bottom of the page when the new div is added --> https://stackoverflow.com/questions/1966784/auto-scroll-to-bottom-of-page-with-jquery
 */
 
