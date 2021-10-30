@@ -1,6 +1,18 @@
 body {
   background-color: #bce7d8;
-  font-family: "Architects Daughter", cursive; /* Google Font */
+  font-family: "Architects Daughter", cursive; 
+  margin: 40px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h3 {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .row {
@@ -25,17 +37,11 @@ body {
 }
 
 .botChat {
-    background-color:#74B49B;;
+    background-color:#74B49B;
 }
 
 .userChat {
   background-color: #72b3ad;
-
-}
-
-
-.form {
-  display:flex;
 }
 
 .formElement{
@@ -44,8 +50,36 @@ body {
   font-family: "Architects Daughter", cursive;
 }
 
-.input {
-  width:85%;
+.large {                           
+  display: inline-block; 
+}
+.small {
+  display: none;
+}
+
+@media (max-width:2000px) {
+  input {
+  width:90%;
+    }
+}
+
+@media (max-width: 1407px) {
+  input {
+    width: 70%;
+  }
+}
+
+@media (max-width: 560px) {
+  input {
+    width: 50%;
+  }
+  .large {
+    display: none; 
+  }
+  .small {
+    display: inline-block;
+  }
+
 }
 
 .btn {
@@ -53,8 +87,15 @@ body {
 }
 
 .timestamp {
+  font-family: 'Space Mono', monospace;
   font-size: x-small;
   width: 50%;
   overflow-wrap: break-word;
   margin: -20px 0 0 25px;
 }
+
+
+ /* Notes 
+  How to use media query to change the placeholder text:
+  https://stackoverflow.com/questions/18176102/swap-placeholder-text-based-on-resolution-media-query 
+  */

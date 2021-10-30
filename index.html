@@ -8,35 +8,31 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <h1>Welcome to "Chat with a Wall"</h1>
+    <h3>Simulate the experience of having a conversation and not be listened to</h3>
     <div class="row">
       <div class="chat botChat">
-        <p>Welcome to the chat!</p>
+        <p>Hello ! Talk to me 😊 </p>
       </div>
       <div class="placeholder"></div>
     </div>
 
     <div class="row" id="chatInput">
       <div class="placeholder"></div>
-      <div class="chat userInput noBorder">
-           <input class="formElement input" type="text" name="userInput" id="userInput" placeholder="Type your message here">
+      <div class="chat noBorder">
+           <input class="formElement input large" type="text" name="userInput" id="userInput" placeholder="Type your message here">
+           <input class="formElement input small" type="text" name="userInput" id="userInput" placeholder="Type">
            <button class="formElement btn">Send</button>
       </div>
     </div>
-<!-- 
-    <div class="row">
-      <div class="placeholder"></div>
-      <div class="chat userChat">
-          <p></p>
-      </div>
-    </div> -->
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="script.js"></script> 
+  <script src="script.js"></script> 
 
    
   </body>
