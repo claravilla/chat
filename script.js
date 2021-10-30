@@ -1,8 +1,8 @@
-/*add event listener to send button*/
+//add event listener to send button
 
 $(".btn").click(chatInput);
 
-//add event listener for "enter" - tutorial https://api.jquery.com/keydown/
+//add event listener for "enter" 
 
 $("body").keydown(function(event){
      if(event.keyCode===13) {
@@ -10,15 +10,16 @@ $("body").keydown(function(event){
      }
 });
 
-//create an array with possible responses
+//Arrays with possible replies
 
 const genericReply = [
-  
-  "The circumference of a circle is r*r*3.14",
   "The eye of the Enemy is moving",
   "I have a bad feeling about this",
   "With a spoonful of sugar the pill goes down",
-  "There's a snake in my boot"
+  "There's a snake in my boot",
+  "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.",
+  "The leaves of lothlorien do not idly fall",
+  "Winter is coming"
 ];
 
 const who = [
@@ -39,36 +40,57 @@ const where = [
   "In a black hole",
   "Narnia",
   "In your dreams"
-]
+];
 
 const why = [
   "Because I say so",
   "This is the way",
   "Computer says no",
   "It's better this way"
-]
+];
 
 
 const when = [
   "Never",
   "The Ides of March",
   "On your birthday",
+  "On Pie day",
+  "When the planets align",
+  "When Hell breaks loose"
 ];
 
 
+  // Function that randomises a number to be used to pick the reply from the array
 
-/* create function that
+  function randomNumber(num) {
+    return Math.floor(Math.random()*num);
+ }
+
+
+ // Function that generates the date and time stamp
+
+
+function timestamp() {
+  let timestamp = new Date; 
+  return timestamp.toLocaleString("en-GB");
+  
+  };
+  
+
+/* Function that
    - read the user input
    - create a new user chat div (with the full new row)
    - add the text in the div
    - add the new div above the input div
+   - add the timestamp
+   to be used when the user submit their message
   */
 
 function chatInput() {
     let input= $("#userInput").val(); 
     if (input==="") {
        alert("Please type a message");
-    } else {          //add the user message to the chat - tutorial https://www.tutorialrepublic.com/jquery-tutorial/jquery-insert-content.php
+    } else {         
 
       let newRow = "<div class=\"row\"><div class=\"placeholder\"></div><div class=\"chat userChat\"><p id=\"input\"></p></div></div>";
 
@@ -84,9 +106,7 @@ function chatInput() {
       $("#time").removeAttr("id");
       $("#userInput").val("");  //clearing the input field
 
-
-      //call a function to get a reply with 
-      //add if statement to pass the correct constant in the call for the function
+      //select which reply to send based on keyword from the input
 
       if ((/why/i).test(input)) {
         chatReply(why);
@@ -100,24 +120,19 @@ function chatInput() {
         chatReply(genericReply);  
       };
    
-
-     
-    }; //end of else block;
+    }; 
    
 };
 
-  // create a function that randomise a number
-
-  function randomNumber(num) {
-     return Math.floor(Math.random()*num);
-  }
 
 
-/* create a function that
+/* Function that
    - calls random number
    - create a new chat div (with the full new row)
    - add the text to the div based on an array of possible answer
-   - add the div above the input chat  */
+   - add the div above the input chat 
+   - add the timestamp
+   to be called at the end of chatInput function */ 
 
 
 
@@ -135,18 +150,8 @@ function chatReply(reply) {
     $("#time").removeAttr("id");
 }
 
-
-/*create a function that generate the date and time stamp 
-(see if we can use the Date object)
-call this function in the paragraph creation
-(see if need to add a new div to populate that)
+/* Notes
+- Add the user message to the chat --> tutorial https://www.tutorialrepublic.com/jquery-tutorial/jquery-insert-content.php
+- Help on event listerner with Enter key - tutorial https://api.jquery.com/keydown/
 */
-
-
-function timestamp() {
-let timestamp = new Date; 
-return timestamp.toLocaleString("en-GB");
-
-};
-
 
