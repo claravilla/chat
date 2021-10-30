@@ -13,14 +13,13 @@ $("body").keydown(function(event){
 //Arrays with possible replies
 
 const genericReply = [
-  
   "The eye of the Enemy is moving",
   "I have a bad feeling about this",
   "With a spoonful of sugar the pill goes down",
   "There's a snake in my boot",
   "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.",
   "The leaves of lothlorien do not idly fall",
-
+  "Winter is coming"
 ];
 
 const who = [
@@ -41,14 +40,14 @@ const where = [
   "In a black hole",
   "Narnia",
   "In your dreams"
-]
+];
 
 const why = [
   "Because I say so",
   "This is the way",
   "Computer says no",
   "It's better this way"
-]
+];
 
 
 const when = [
