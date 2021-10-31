@@ -23,6 +23,8 @@ h3 {
   width: 50%;
 }
 
+/* style for the chat bubble */
+
 .chat {
   width: 50%;
   overflow-wrap: break-word;
@@ -43,6 +45,18 @@ h3 {
 .userChat {
   background-color: #72b3ad;
 }
+
+/* style for the timestamp line */
+
+.timestamp {
+  font-family: 'Space Mono', monospace;
+  font-size: x-small;
+  width: 50%;
+  overflow-wrap: break-word;
+  margin: -20px 0 0 25px;
+}
+
+/*style for the input form */
 
 .formElement{
   border-radius: 10px;
@@ -86,13 +100,7 @@ h3 {
   background-color: rgb(223, 217, 217);
 }
 
-.timestamp {
-  font-family: 'Space Mono', monospace;
-  font-size: x-small;
-  width: 50%;
-  overflow-wrap: break-word;
-  margin: -20px 0 0 25px;
-}
+
 
 
  /* Notes 

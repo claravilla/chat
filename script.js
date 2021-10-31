@@ -10,46 +10,60 @@ $("body").keydown(function(event){
      }
 });
 
-
-
+//put cursor in the input field
+$(".input").focus();
 
 //Arrays with possible replies
 
 const genericReply = [
-  "The eye of the Enemy is moving",
-  "I have a bad feeling about this",
-  "With a spoonful of sugar the pill goes down",
+  "A robot may not injure a human being or, through inaction, allow a human being to come to harm",
+  "Happy families are all alike; every unhappy family is unhappy in its own way",
+  "Just a spoonful of sugar helps the medicine go down",
   "There's a snake in my boot",
-  "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.",
+  "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much",
   "The leaves of lothlorien do not idly fall",
-  "Winter is coming"
+  "Winter is coming",
+  "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife",
+  "Part of the Ship, part of the Crew",
+  "Elementary, my dear Watson"
 ];
 
 const who = [
-  "The Doctor",
+  "The Witcher",
   "Sauron",
-  "The Weasley Twins",
-  "Mickey Mouse",
+  "Professor Snape",
+  "Sherlock Holmes",
   "Uncle Scrooge",
-  "Darth Vader",
-  "Mary Poppins"
+  "Hari Seldon ",
+  "Mary Poppins",
+  "Mr Darcy",
+  "The Cheshire Cat",
+  "The Wizard of Oz"
 ];
 
 
 const where = [
-  "Highway to Hell",
   "Neverland",
   "Across the Universe",
   "In a black hole",
   "Narnia",
-  "In your dreams"
+  "Nautilus",
+  "In the study in scarlet",
+  "Terminus",
+  "Hogwarts",
+  "The Middle Earth",
+  "Les Halles de Paris"
 ];
 
 const why = [
   "Because I say so",
   "This is the way",
-  "Computer says no",
-  "It's better this way"
+  "It's part of the plan",
+  "It's the prophecy",
+  "Evolution",
+  "Survival",
+  "Universe expansion",
+  "Magic"
 ];
 
 
@@ -59,7 +73,11 @@ const when = [
   "On your birthday",
   "On Pie day",
   "When the planets align",
-  "When Hell breaks loose"
+  "When Hell breaks loose",
+  "When you last expect",
+  "On the next full moon",
+  "At midnight",
+  "At sunrise"
 ];
 
 
@@ -109,7 +127,7 @@ function chatInput() {
       
       $("#input").removeAttr("id");
       $("#time").removeAttr("id");
-      $("#userInput").val("");  //clearing the input field
+      $("#userInput").val("");  //clear the input field
 
       //select which reply to send based on keyword from the input
 
@@ -161,13 +179,8 @@ function chatReply(reply) {
 };
 
 
-function scrollDown() {
-  console.log("this works");
-  
-};
-
 /* Notes
-- Add the user message to the chat --> tutorial https://www.tutorialrepublic.com/jquery-tutorial/jquery-insert-content.php
+- Add more element to the body in one step --> tutorial https://www.tutorialrepublic.com/jquery-tutorial/jquery-insert-content.php
 - Help on event listerner with Enter key ---> tutorial https://api.jquery.com/keydown/
 - How to scroll to the bottom of the page when the new div is added --> https://stackoverflow.com/questions/1966784/auto-scroll-to-bottom-of-page-with-jquery
 */
